@@ -68,5 +68,10 @@ public class MainActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        for (int x = 0; x<10; x++)
+        {
+            Log.i("Salam", "Salam Eleykim");
+        }
     }
 }
