@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String dayWithNumber = String.valueOf(Integer.parseInt(dateInString.substring(3,5)));
                // Log.i("Tarix", dayWithNumber + " " + months.get(dateInString.substring(0, 2)));
-                // Test Example
+                // SAgopa kajmer
             }
 
         } catch (ParseException e) {
