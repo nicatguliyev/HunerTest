@@ -22,7 +22,8 @@ import java.util.Map;
 public class Test extends AppCompatActivity {
 
     GridView myGridView;
-
+    View selectedItemView;
+    int selectedItemIndex = -1;
     Map<String, String> months = new HashMap<String, String>();
     ArrayList<String> monthWithNames = new ArrayList<>();
     ArrayList<String> days = new ArrayList<>();
@@ -103,6 +104,28 @@ public class Test extends AppCompatActivity {
 
                 ImageView doneIcon = view.findViewById(R.id.doneIcon);
                 doneIcon.setVisibility(View.VISIBLE);
+
+                if(selectedItemIndex == -1)
+                {
+                    selectedItemIndex = i;
+                }
+
+
+                if(selectedItemView != null)
+                {
+                    if(i != selectedItemIndex)
+                    {
+                        selectedItemView.findViewById(R.id.doneIcon).setVisibility(View.INVISIBLE);
+                        selectedItemView = view;
+                        selectedItemIndex = i;
+                    }
+
+                }
+                else
+                {
+                    selectedItemView = view;
+                }
+
             }
         });
 
