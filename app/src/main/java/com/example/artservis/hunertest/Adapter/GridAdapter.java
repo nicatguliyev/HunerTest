@@ -6,8 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.artservis.hunertest.R;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 /**
  * Created by Art Servis on 10/21/2018.
@@ -16,18 +21,20 @@ import com.example.artservis.hunertest.R;
 public class GridAdapter  extends BaseAdapter{
 
     Context context;
-    private final int[] images;
+    private final ArrayList<String> months;
+    private final ArrayList<String> days;
     View _View;
     LayoutInflater layoutInflater;
 
-    public GridAdapter(Context context, int[] images) {
+    public GridAdapter(Context context, ArrayList<String> months, ArrayList<String> days) {
         this.context = context;
-        this.images = images;
+        this.months = months;
+        this.days = days;
     }
 
     @Override
     public int getCount() {
-        return images.length;
+        return months.size();
     }
 
     @Override
@@ -45,15 +52,18 @@ public class GridAdapter  extends BaseAdapter{
 
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        if(view == null)
-        {
-            _View = new View(context);
+       // if(view == null)
+      // {
+         //   _View = new View(context);
             _View = layoutInflater.inflate(R.layout.grid_item, null);
 
-            ImageView imageView = _View.findViewById(R.id.imageView);
-            imageView.setImageResource(images[i]);
+            TextView dayTxt = _View.findViewById(R.id.dayTxt);
+            TextView monthTxt = _View.findViewById(R.id.monthTxt);
 
-        }
+            dayTxt.setText(days.get(i));
+            monthTxt.setText(months.get(i));
+
+       // }
 
         return _View;
     }
