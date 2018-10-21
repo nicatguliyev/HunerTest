@@ -4,7 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 import com.example.artservis.hunertest.Adapter.GridAdapter;
 
@@ -94,7 +97,15 @@ public class Test extends AppCompatActivity {
 
         myGridView.setAdapter(adapter);
 
+        myGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-
+                ImageView doneIcon = view.findViewById(R.id.doneIcon);
+                doneIcon.setVisibility(View.VISIBLE);
             }
+        });
+
+
+    }
 }
