@@ -1,5 +1,8 @@
 package com.example.artservis.hunertest;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -22,8 +25,8 @@ import java.util.Map;
 public class Test extends AppCompatActivity {
 
     GridView myGridView;
-    View selectedItemView;
-    int selectedItemIndex = -1;
+    View selectedItemView;  // secilmis tarixe uygun view-nu gosterir.
+    int selectedItemIndex = -1;  // Secilmis tarixin indexini gosterir.
     Map<String, String> months = new HashMap<String, String>();
     ArrayList<String> monthWithNames = new ArrayList<>();
     ArrayList<String> days = new ArrayList<>();
@@ -105,6 +108,10 @@ public class Test extends AppCompatActivity {
                 ImageView doneIcon = view.findViewById(R.id.doneIcon);
                 doneIcon.setVisibility(View.VISIBLE);
 
+                GradientDrawable background = (GradientDrawable) view.getBackground();
+                background.setColor(Color.parseColor("#f5ab30"));
+
+                // En birinci tarix secilende hemin tarixin indexini selectedItemIndex - e menimsedir.
                 if(selectedItemIndex == -1)
                 {
                     selectedItemIndex = i;
@@ -116,6 +123,8 @@ public class Test extends AppCompatActivity {
                     if(i != selectedItemIndex)
                     {
                         selectedItemView.findViewById(R.id.doneIcon).setVisibility(View.INVISIBLE);
+                        GradientDrawable oldItemBackground = (GradientDrawable) selectedItemView.getBackground();
+                        oldItemBackground.setColor(Color.parseColor("#4b4b4d"));
                         selectedItemView = view;
                         selectedItemIndex = i;
                     }
