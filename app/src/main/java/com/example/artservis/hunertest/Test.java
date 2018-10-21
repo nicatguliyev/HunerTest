@@ -1,13 +1,18 @@
 package com.example.artservis.hunertest;
 
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -35,6 +40,22 @@ public class Test extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
+
+        ActionBar mActionBar = getSupportActionBar();
+
+        mActionBar.setDisplayShowHomeEnabled(false);
+        mActionBar.setDisplayShowTitleEnabled(false);
+        mActionBar.setDisplayShowCustomEnabled(true);
+        mActionBar.setElevation(0);
+        mActionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#898989")));
+
+        ViewGroup actionBarLayout = (ViewGroup) getLayoutInflater().inflate(R.layout.select_date_actionbar, null);
+        mActionBar.setCustomView(actionBarLayout);
+
 
         months.put("01", "Yanvar");
         months.put("02", "Fevral");
