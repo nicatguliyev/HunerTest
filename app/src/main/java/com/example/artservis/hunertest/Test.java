@@ -16,6 +16,8 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.artservis.hunertest.Adapter.GridAdapter;
 
@@ -40,6 +42,8 @@ public class Test extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+
+        RelativeLayout nextBtn = (RelativeLayout) findViewById(R.id.nextBtn);
 
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -156,6 +160,22 @@ public class Test extends AppCompatActivity {
                     selectedItemView = view;
                 }
 
+            }
+        });
+
+
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(selectedItemIndex == -1)
+                {
+                    Toast.makeText(getApplicationContext(), "Zəhmət olmasa tarixi seçin.", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 
