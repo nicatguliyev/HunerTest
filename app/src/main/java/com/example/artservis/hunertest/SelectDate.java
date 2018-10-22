@@ -3,6 +3,7 @@ package com.example.artservis.hunertest;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.os.PersistableBundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ public class SelectDate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_date);
+
 
         RelativeLayout nextBtn = (RelativeLayout) findViewById(R.id.nextBtn);
 
@@ -94,6 +96,9 @@ public class SelectDate extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        GradientDrawable background = (GradientDrawable) getResources().getDrawable(R.drawable.date_column_border);
+        background.setColor(Color.parseColor("#4b4b4d"));
+
         myGridView = (GridView) findViewById(R.id.gridView);
 
 
@@ -108,6 +113,14 @@ public class SelectDate extends AppCompatActivity {
         GridAdapter adapter = new GridAdapter(this, monthWithNames, days);
 
         myGridView.setAdapter(adapter);
+
+        if(savedInstanceState != null)
+        {
+          Log.i("SelectedIndex", String.valueOf(savedInstanceState.getInt("selectedIndex")));
+           View koko =  myGridView.getAdapter().getView(savedInstanceState.getInt("selectedIndex"), null, myGridView);
+            GradientDrawable bck = (GradientDrawable) koko.getBackground();
+            bck.setColor(Color.BLACK);
+        }
 
         myGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -159,9 +172,13 @@ public class SelectDate extends AppCompatActivity {
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt("selectedIndex", selectedItemIndex);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
     public void onBackPressed() {
-        GradientDrawable background = (GradientDrawable) getResources().getDrawable(R.drawable.date_column_border);
-        background.setColor(Color.parseColor("#4b4b4d"));
         finish();
     }
 }
