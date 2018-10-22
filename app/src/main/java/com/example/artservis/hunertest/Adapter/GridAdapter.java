@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * Created by Art Servis on 10/21/2018.
  */
 
-public class GridAdapter  extends BaseAdapter{
+public class GridAdapter extends BaseAdapter {
 
     Context context;
     private final ArrayList<String> months;
@@ -52,17 +52,15 @@ public class GridAdapter  extends BaseAdapter{
     public View getView(int i, View view, ViewGroup viewGroup) {
 
 
-            if(view == null) {
-                layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-                _View = layoutInflater.inflate(R.layout.grid_item, null);
+        _View = layoutInflater.inflate(R.layout.grid_item, null);
 
-            }
-            TextView dayTxt = _View.findViewById(R.id.dayTxt);
-            TextView monthTxt = _View.findViewById(R.id.monthTxt);
+        TextView dayTxt = _View.findViewById(R.id.dayTxt);
+        TextView monthTxt = _View.findViewById(R.id.monthTxt);
 
-            dayTxt.setText(days.get(i));
-            monthTxt.setText(months.get(i));
+        dayTxt.setText(days.get(i));
+        monthTxt.setText(months.get(i));
 
 
         return _View;
