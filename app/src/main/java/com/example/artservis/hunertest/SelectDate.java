@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -42,11 +43,13 @@ public class SelectDate extends AppCompatActivity {
 
         RelativeLayout nextBtn = (RelativeLayout) findViewById(R.id.nextBtn);
 
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         ActionBar mActionBar = getSupportActionBar();
 
         mActionBar.hide();
+
+        Log.i("Status", "Basladi");
 
 
         months.put("01", "Yanvar");
@@ -70,15 +73,10 @@ public class SelectDate extends AppCompatActivity {
 
             c.setTime(sdf.parse(dateInString));
 
-            for(int i = 1; i <= 30 ; i++)
-            {
-                if(i == 1)
-                {
+            for (int i = 1; i <= 30; i++) {
+                if (i == 1) {
                     c.add(Calendar.DATE, 0);
-                }
-
-                else
-                {
+                } else {
                     c.add(Calendar.DATE, 1);
                 }
 
@@ -88,8 +86,8 @@ public class SelectDate extends AppCompatActivity {
                 Date resultDate = new Date(c.getTimeInMillis());
                 dateInString = sdf.format(resultDate);
 
-                String dayWithNumber = String.valueOf(Integer.parseInt(dateInString.substring(3,5)));
-                monthWithNames.add(months.get(dateInString.substring(0,2)).substring(0,3));
+                String dayWithNumber = String.valueOf(Integer.parseInt(dateInString.substring(3, 5)));
+                monthWithNames.add(months.get(dateInString.substring(0, 2)).substring(0, 3));
                 days.add(dayWithNumber);
 
             }
@@ -101,14 +99,13 @@ public class SelectDate extends AppCompatActivity {
         myGridView = (GridView) findViewById(R.id.gridView);
 
 
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int width = displayMetrics.widthPixels;
 
         // Ekranin enini 5 beraber hisseye bolub
 
-        myGridView.setColumnWidth(width /5);
+        myGridView.setColumnWidth(width / 5);
 
         GridAdapter adapter = new GridAdapter(this, monthWithNames, days);
 
@@ -125,16 +122,13 @@ public class SelectDate extends AppCompatActivity {
                 background.setColor(Color.parseColor("#f5ab30"));
 
                 // En birinci tarix secilende hemin tarixin indexini selectedItemIndex - e menimsedir.
-                if(selectedItemIndex == -1)
-                {
+                if (selectedItemIndex == -1) {
                     selectedItemIndex = i;
                 }
 
 
-                if(selectedItemView != null)
-                {
-                    if(i != selectedItemIndex)
-                    {
+                if (selectedItemView != null) {
+                    if (i != selectedItemIndex) {
                         selectedItemView.findViewById(R.id.doneIcon).setVisibility(View.INVISIBLE);
                         GradientDrawable oldItemBackground = (GradientDrawable) selectedItemView.getBackground();
                         oldItemBackground.setColor(Color.parseColor("#4b4b4d"));
@@ -142,9 +136,7 @@ public class SelectDate extends AppCompatActivity {
                         selectedItemIndex = i;
                     }
 
-                }
-                else
-                {
+                } else {
                     selectedItemView = view;
                 }
 
@@ -155,12 +147,9 @@ public class SelectDate extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(selectedItemIndex == -1)
-                {
+                if (selectedItemIndex == -1) {
                     Toast.makeText(getApplicationContext(), "Zəhmət olmasa tarixi seçin.", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
+                } else {
                     Intent intentToServices = new Intent(getApplicationContext(), Services.class);
                     startActivity(intentToServices);
                     overridePendingTransition(R.anim.come_from_right, R.anim.exit_from_left);
@@ -169,7 +158,6 @@ public class SelectDate extends AppCompatActivity {
             }
         });
 
-
-
     }
+
 }

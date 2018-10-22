@@ -23,10 +23,11 @@
 
 
         <ImageView
+            android:id="@+id/bacBtn"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="2dp"
             android:padding="8dp"
             android:clickable="true"
             android:background="@drawable/menu_button_background"
