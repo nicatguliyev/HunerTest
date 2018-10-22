@@ -8,5 +8,10 @@
     <color name="whiteGold">#BBF5BD5E</color>
     <color name="gold">#e6b121</color>
     <color name="hunerGold">#f5ab30</color>
+    <color name="hunerGrey">#4b4b4d</color>
+    <color name="actionBarColor">#616060</color>
+    <color name="menuBtnPressedColor">#a87e7e7e</color>
+    <color name="transparent">#007e7e7e</color>
+
 
 </resources>

@@ -4,11 +4,30 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="#898989">
+    android:background="@drawable/gradient_actionbar">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/menu_button_background"
+            android:layout_centerVertical="true">
+
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_marginLeft="5dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/menu_icon"/>
+
+        </RelativeLayout>
 
 
         <TextView
