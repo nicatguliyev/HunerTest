@@ -50,11 +50,8 @@ public class GridAdapter  extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+           layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-       // if(view == null)
-      // {
-         //   _View = new View(context);
             _View = layoutInflater.inflate(R.layout.grid_item, null);
 
             TextView dayTxt = _View.findViewById(R.id.dayTxt);

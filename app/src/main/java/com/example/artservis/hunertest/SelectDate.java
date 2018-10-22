@@ -49,7 +49,14 @@ public class SelectDate extends AppCompatActivity {
 
         mActionBar.hide();
 
-        Log.i("Status", "Basladi");
+        if(selectedItemView == null)
+        {
+            Log.i("Nulldur", "Nulldur");
+        }
+        else
+        {
+            Log.i("Nulldur", "Null deyil");
+        }
 
 
         months.put("01", "Yanvar");
@@ -121,9 +128,11 @@ public class SelectDate extends AppCompatActivity {
                 GradientDrawable background = (GradientDrawable) view.getBackground();
                 background.setColor(Color.parseColor("#f5ab30"));
 
+
                 // En birinci tarix secilende hemin tarixin indexini selectedItemIndex - e menimsedir.
                 if (selectedItemIndex == -1) {
                     selectedItemIndex = i;
+                    Log.i("Sagopa", "Isleyir");
                 }
 
 
@@ -134,10 +143,14 @@ public class SelectDate extends AppCompatActivity {
                         oldItemBackground.setColor(Color.parseColor("#4b4b4d"));
                         selectedItemView = view;
                         selectedItemIndex = i;
+                        Log.i("Sagopa", "Isleyir2");
+
                     }
 
                 } else {
                     selectedItemView = view;
+                    Log.i("Sagopa", "Isleyir3");
+
                 }
 
             }
@@ -160,4 +173,10 @@ public class SelectDate extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+       // super.onBackPressed();
+        moveTaskToBack(true);
+      //  finish();
+    }
 }
