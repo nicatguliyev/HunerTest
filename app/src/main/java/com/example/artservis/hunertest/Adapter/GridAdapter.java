@@ -1,6 +1,7 @@
 package com.example.artservis.hunertest.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,17 +51,19 @@ public class GridAdapter  extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-           layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            _View = layoutInflater.inflate(R.layout.grid_item, null);
+            if(view == null) {
+                layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+                _View = layoutInflater.inflate(R.layout.grid_item, null);
+
+            }
             TextView dayTxt = _View.findViewById(R.id.dayTxt);
             TextView monthTxt = _View.findViewById(R.id.monthTxt);
 
             dayTxt.setText(days.get(i));
             monthTxt.setText(months.get(i));
 
-       // }
 
         return _View;
     }
