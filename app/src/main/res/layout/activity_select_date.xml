@@ -6,6 +6,35 @@
     android:layout_height="match_parent"
     android:background="#898989"
     tools:context="com.example.artservis.hunertest.Test">
+    
+    
+    
+    <RelativeLayout
+        android:id="@+id/actionBarLyt"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@drawable/gradient_actionbar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Tarix seçimi"
+            android:textColor="#fff"
+            android:textStyle="bold"/>
+
+
+         <ImageView
+             android:layout_width="50dp"
+             android:layout_height="match_parent"
+             android:layout_centerVertical="true"
+             android:layout_marginLeft="5dp"
+             android:padding="10dp"
+             android:clickable="true"
+             android:background="@drawable/menu_button_background"
+             android:src="@drawable/menu_icon"/>
+
+    </RelativeLayout>
 
 
 
@@ -14,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnWidth="90dp"
+        android:layout_below="@+id/actionBarLyt"
         android:layout_above="@+id/nextBtn"
         android:layout_marginTop="5px"
         android:numColumns="auto_fit"/>

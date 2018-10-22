@@ -48,14 +48,15 @@ public class SelectDate extends AppCompatActivity {
 
         ActionBar mActionBar = getSupportActionBar();
 
-        mActionBar.setDisplayShowHomeEnabled(false);
-        mActionBar.setDisplayShowTitleEnabled(false);
-        mActionBar.setDisplayShowCustomEnabled(true);
-        mActionBar.setElevation(0);
-        // mActionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#616060")));
-        mActionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_actionbar));
-        ViewGroup actionBarLayout = (ViewGroup) getLayoutInflater().inflate(R.layout.select_date_actionbar, null);
-        mActionBar.setCustomView(actionBarLayout);
+      //  mActionBar.setDisplayShowHomeEnabled(false);
+      //  mActionBar.setDisplayShowTitleEnabled(false);
+      //  mActionBar.setDisplayShowCustomEnabled(true);
+      //  mActionBar.setElevation(0);
+      //  mActionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_actionbar));
+      //  ViewGroup actionBarLayout = (ViewGroup) getLayoutInflater().inflate(R.layout.select_date_actionbar, null);
+      //  mActionBar.setCustomView(actionBarLayout);
+
+        mActionBar.hide();
 
 
         months.put("01", "Yanvar");
