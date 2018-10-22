@@ -19,18 +19,7 @@ public class Services extends AppCompatActivity {
 
 
         ActionBar mActionBar = getSupportActionBar();
-
-        mActionBar.setDisplayShowHomeEnabled(false);
-        mActionBar.setDisplayShowTitleEnabled(false);
-        mActionBar.setDisplayShowCustomEnabled(true);
-        mActionBar.setElevation(0);
-        mActionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_actionbar));
-        ViewGroup actionBarLayout = (ViewGroup) getLayoutInflater().inflate(R.layout.select_date_actionbar, null);
-        mActionBar.setCustomView(actionBarLayout);
-
-        ImageView backImage = mActionBar.getCustomView().findViewById(R.id.menuIcon);
-
-        backImage.setImageResource(R.drawable.big_back_arrow);
+        mActionBar.hide();
 
 
     }

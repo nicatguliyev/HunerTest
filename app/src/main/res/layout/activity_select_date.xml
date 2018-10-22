@@ -29,7 +29,7 @@
              android:layout_height="match_parent"
              android:layout_centerVertical="true"
              android:layout_marginLeft="5dp"
-             android:padding="10dp"
+             android:padding="11dp"
              android:clickable="true"
              android:background="@drawable/menu_button_background"
              android:src="@drawable/menu_icon"/>
