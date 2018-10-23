@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.artservis.hunertest.Adapter.GridAdapter;
@@ -38,7 +39,7 @@ public class SelectDate extends AppCompatActivity {
     ArrayList<String> days = new ArrayList<>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_date);
 
@@ -107,19 +108,52 @@ public class SelectDate extends AppCompatActivity {
         int width = displayMetrics.widthPixels;
 
         // Ekranin enini 5 beraber hisseye bolub
-
         myGridView.setColumnWidth(width / 5);
 
         GridAdapter adapter = new GridAdapter(this, monthWithNames, days);
 
-        myGridView.setAdapter(adapter);
+       // myGridView.setAdapter(adapter);
 
         if(savedInstanceState != null)
         {
-          Log.i("SelectedIndex", String.valueOf(savedInstanceState.getInt("selectedIndex")));
-           View koko =  myGridView.getAdapter().getView(savedInstanceState.getInt("selectedIndex"), null, myGridView);
-            GradientDrawable bck = (GradientDrawable) koko.getBackground();
-            bck.setColor(Color.BLACK);
+
+            if( savedInstanceState.getInt("selectedIndex") != -1)
+            {
+               // View koko =  myGridView.getAdapter().getView(savedInstanceState.getInt("selectedIndex"), null, myGridView);
+                selectedItemIndex = savedInstanceState.getInt("selectedIndex");
+
+                myGridView.setAdapter(new GridAdapter(this, monthWithNames, days)
+                {
+                    @Override
+                    public View getView(int i, View view, ViewGroup viewGroup) {
+                        View itemView = super.getView(i, view, viewGroup);
+                        GradientDrawable background = (GradientDrawable) itemView.getBackground();
+
+                        if(i == savedInstanceState.getInt("selectedIndex"))
+                        {
+
+                            background.setColor(Color.parseColor("#f5ab30"));
+                            selectedItemView = itemView;
+                        }
+                        else
+                        {
+                            background.setColor(Color.parseColor("#4b4b4d"));
+                        }
+                        return itemView;
+                    }
+                });
+            }
+
+            else
+            {
+                myGridView.setAdapter(adapter);
+            }
+
+        }
+
+        else
+        {
+            myGridView.setAdapter(adapter);
         }
 
         myGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
