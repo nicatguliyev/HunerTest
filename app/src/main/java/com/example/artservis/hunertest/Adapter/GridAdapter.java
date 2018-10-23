@@ -69,7 +69,6 @@ public class GridAdapter extends BaseAdapter {
 
             view.setTag(viewHolder);
 
-            //_View = layoutInflater.inflate(R.layout.grid_item, null);
         }
 
         else
@@ -79,13 +78,6 @@ public class GridAdapter extends BaseAdapter {
 
         viewHolder.dayTxt.setText(days.get(i));
         viewHolder.monthTxt.setText(months.get(i));
-
-       // TextView dayTxt = _View.findViewById(R.id.dayTxt);
-       // TextView monthTxt = _View.findViewById(R.id.monthTxt);
-
-     //   dayTxt.setText(days.get(i));
-      //  monthTxt.setText(months.get(i));
-
 
         return view;
     }
