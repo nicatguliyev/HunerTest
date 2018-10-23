@@ -46,6 +46,7 @@
         android:layout_below="@+id/actionBarLyt"
         android:layout_above="@+id/nextBtn"
         android:layout_marginTop="5px"
+        android:layout_marginBottom="5px"
         android:numColumns="auto_fit"/>
 
 

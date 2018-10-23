@@ -110,7 +110,7 @@ public class SelectDate extends AppCompatActivity {
         // Ekranin enini 5 beraber hisseye bolub
         myGridView.setColumnWidth(width / 5);
 
-        GridAdapter adapter = new GridAdapter(this, monthWithNames, days);
+        final GridAdapter adapter = new GridAdapter(this, monthWithNames, days);
 
         if(savedInstanceState != null)
         {
@@ -119,6 +119,7 @@ public class SelectDate extends AppCompatActivity {
             {
                // View koko =  myGridView.getAdapter().getView(savedInstanceState.getInt("selectedIndex"), null, myGridView);
                 selectedItemIndex = savedInstanceState.getInt("selectedIndex");
+                selectedItemView = adapter.getView(selectedItemIndex, null, myGridView); ////////////////////////////////////////////////////  ELAVE
 
                 myGridView.setAdapter(new GridAdapter(this, monthWithNames, days)
                 {
@@ -128,7 +129,7 @@ public class SelectDate extends AppCompatActivity {
                         GradientDrawable background = (GradientDrawable) itemView.getBackground();
                         ImageView doneIcon = itemView.findViewById(R.id.doneIcon);
 
-                        if(i == savedInstanceState.getInt("selectedIndex"))
+                        if(i == selectedItemIndex)
                         {
 
                             doneIcon.setVisibility(View.VISIBLE);
@@ -167,6 +168,9 @@ public class SelectDate extends AppCompatActivity {
                 GradientDrawable background = (GradientDrawable) view.getBackground();
                 background.setColor(Color.parseColor("#f5ab30"));
 
+
+                Log.i("Selected", String.valueOf(selectedItemIndex));
+
                 // En birinci tarix secilende hemin tarixin indexini selectedItemIndex - e menimsedir.
                 if (selectedItemIndex == -1) {
                     selectedItemIndex = i;
@@ -185,6 +189,7 @@ public class SelectDate extends AppCompatActivity {
                 } else {
                     selectedItemView = view;
                 }
+
 
             }
         });
