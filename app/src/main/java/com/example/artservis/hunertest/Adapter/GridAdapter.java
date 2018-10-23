@@ -48,21 +48,45 @@ public class GridAdapter extends BaseAdapter {
         return 0;
     }
 
+     static class ViewHolder{
+         TextView dayTxt;
+         TextView monthTxt;
+    }
+
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
+        ViewHolder viewHolder;
 
-        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if(view == null)
+        {
+            layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = layoutInflater.inflate(R.layout.grid_item, viewGroup, false);
 
-        _View = layoutInflater.inflate(R.layout.grid_item, null);
+            viewHolder = new ViewHolder();
+            viewHolder.dayTxt = view.findViewById(R.id.dayTxt);
+            viewHolder.monthTxt = view.findViewById(R.id.monthTxt);
 
-        TextView dayTxt = _View.findViewById(R.id.dayTxt);
-        TextView monthTxt = _View.findViewById(R.id.monthTxt);
+            view.setTag(viewHolder);
 
-        dayTxt.setText(days.get(i));
-        monthTxt.setText(months.get(i));
+            //_View = layoutInflater.inflate(R.layout.grid_item, null);
+        }
+
+        else
+        {
+            viewHolder = (ViewHolder) view.getTag();
+        }
+
+        viewHolder.dayTxt.setText(days.get(i));
+        viewHolder.monthTxt.setText(months.get(i));
+
+       // TextView dayTxt = _View.findViewById(R.id.dayTxt);
+       // TextView monthTxt = _View.findViewById(R.id.monthTxt);
+
+     //   dayTxt.setText(days.get(i));
+      //  monthTxt.setText(months.get(i));
 
 
-        return _View;
+        return view;
     }
 }

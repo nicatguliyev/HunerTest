@@ -112,8 +112,6 @@ public class SelectDate extends AppCompatActivity {
 
         GridAdapter adapter = new GridAdapter(this, monthWithNames, days);
 
-       // myGridView.setAdapter(adapter);
-
         if(savedInstanceState != null)
         {
 
@@ -128,16 +126,18 @@ public class SelectDate extends AppCompatActivity {
                     public View getView(int i, View view, ViewGroup viewGroup) {
                         View itemView = super.getView(i, view, viewGroup);
                         GradientDrawable background = (GradientDrawable) itemView.getBackground();
+                        ImageView doneIcon = itemView.findViewById(R.id.doneIcon);
 
                         if(i == savedInstanceState.getInt("selectedIndex"))
                         {
-                            ImageView doneIcon = itemView.findViewById(R.id.doneIcon);
+
                             doneIcon.setVisibility(View.VISIBLE);
                             background.setColor(Color.parseColor("#f5ab30"));
                             selectedItemView = itemView;
                         }
                         else
                         {
+                            doneIcon.setVisibility(View.INVISIBLE);
                             background.setColor(Color.parseColor("#4b4b4d"));
                         }
                         return itemView;
