@@ -131,7 +131,8 @@ public class SelectDate extends AppCompatActivity {
 
                         if(i == savedInstanceState.getInt("selectedIndex"))
                         {
-
+                            ImageView doneIcon = itemView.findViewById(R.id.doneIcon);
+                            doneIcon.setVisibility(View.VISIBLE);
                             background.setColor(Color.parseColor("#f5ab30"));
                             selectedItemView = itemView;
                         }
