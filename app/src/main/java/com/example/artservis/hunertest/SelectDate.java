@@ -119,7 +119,7 @@ public class SelectDate extends AppCompatActivity {
             {
                // View koko =  myGridView.getAdapter().getView(savedInstanceState.getInt("selectedIndex"), null, myGridView);
                 selectedItemIndex = savedInstanceState.getInt("selectedIndex");
-                selectedItemView = adapter.getView(selectedItemIndex, null, myGridView); ////////////////////////////////////////////////////  ELAVE
+                selectedItemView = adapter.getView(selectedItemIndex, null, myGridView);
 
                 myGridView.setAdapter(new GridAdapter(this, monthWithNames, days)
                 {
@@ -148,7 +148,30 @@ public class SelectDate extends AppCompatActivity {
 
             else
             {
-                myGridView.setAdapter(adapter);
+
+                myGridView.setAdapter(new GridAdapter(this, monthWithNames, days)
+                {
+                    @Override
+                    public View getView(int i, View view, ViewGroup viewGroup) {
+                        View itemView = super.getView(i, view, viewGroup);
+                        GradientDrawable background = (GradientDrawable) itemView.getBackground();
+                        ImageView doneIcon = itemView.findViewById(R.id.doneIcon);
+
+                        if(i == selectedItemIndex)
+                        {
+
+                            doneIcon.setVisibility(View.VISIBLE);
+                            background.setColor(Color.parseColor("#f5ab30"));
+                            selectedItemView = itemView;
+                        }
+                        else
+                        {
+                            doneIcon.setVisibility(View.INVISIBLE);
+                            background.setColor(Color.parseColor("#4b4b4d"));
+                        }
+                        return itemView;
+                    }
+                });
             }
 
         }
