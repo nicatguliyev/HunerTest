@@ -31,6 +31,11 @@ public class Services extends AppCompatActivity {
             }
         });
 
+    }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.come_from_left, R.anim.exit_from_right);
     }
 }
