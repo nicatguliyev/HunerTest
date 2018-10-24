@@ -102,7 +102,7 @@ public class SelectDate extends AppCompatActivity {
 
         myGridView = (GridView) findViewById(R.id.gridView);
 
-
+        // Ekranin enini piksellerle  oyrenmek ucun.
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int width = displayMetrics.widthPixels;
@@ -112,12 +112,12 @@ public class SelectDate extends AppCompatActivity {
 
         final GridAdapter adapter = new GridAdapter(this, monthWithNames, days);
 
+        // App-in orientaionu deyisen zaman.
         if(savedInstanceState != null)
         {
-
+            // Eger her hansi bir tarix secib orientation deyisdikde
             if( savedInstanceState.getInt("selectedIndex") != -1)
             {
-               // View koko =  myGridView.getAdapter().getView(savedInstanceState.getInt("selectedIndex"), null, myGridView);
                 selectedItemIndex = savedInstanceState.getInt("selectedIndex");
                 selectedItemView = adapter.getView(selectedItemIndex, null, myGridView);
 
@@ -146,6 +146,8 @@ public class SelectDate extends AppCompatActivity {
                 });
             }
 
+
+            // Eger Hec bir tarix Secilmeyib orientation deyisdiyi zaman
             else
             {
 
@@ -176,6 +178,7 @@ public class SelectDate extends AppCompatActivity {
 
         }
 
+        // Program ilk acildiginda
         else
         {
             myGridView.setAdapter(adapter);
@@ -190,9 +193,6 @@ public class SelectDate extends AppCompatActivity {
 
                 GradientDrawable background = (GradientDrawable) view.getBackground();
                 background.setColor(Color.parseColor("#f5ab30"));
-
-
-                Log.i("Selected", String.valueOf(selectedItemIndex));
 
                 // En birinci tarix secilende hemin tarixin indexini selectedItemIndex - e menimsedir.
                 if (selectedItemIndex == -1) {
