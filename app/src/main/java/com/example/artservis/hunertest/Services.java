@@ -86,7 +86,7 @@ public class Services extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        background.setBackgroundColor(Color.parseColor("#4b4b4d"));
+                        background.setBackgroundColor(Color.parseColor("#32383e"));
                     }
                 }, 100);
 
