@@ -2,6 +2,7 @@ package com.example.artservis.hunertest;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,13 +42,16 @@ public class Services extends AppCompatActivity {
         ImageView backBtn = (ImageView) findViewById(R.id.bacBtn);
         TextView activityNameTxt = (TextView) findViewById(R.id.activityNameTxt);
 
+      //  Typeface tfc = Typeface.createFromAsset(getAssets(), "fonts/HELR45W.ttf");
+       // activityNameTxt.setTypeface(tfc);
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
         if(bundle != null)
         {
            // Log.i("TATA",  bundle.getString("fullDate"));
-            activityNameTxt.setText("Xidmetler(" + bundle.getString("fullDate") + ")");
+            activityNameTxt.setText("Xidmətlər(" + bundle.getString("fullDate") + ")");
         }
 
         servicenames  = new ArrayList<>();
@@ -89,6 +93,11 @@ public class Services extends AppCompatActivity {
                         background.setBackgroundColor(Color.parseColor("#32383e"));
                     }
                 }, 100);
+
+                Intent intent  = new Intent(getApplicationContext(), Details.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.come_from_right, R.anim.exit_from_left);
+
 
             }
         });

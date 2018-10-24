@@ -1,6 +1,7 @@
 package com.example.artservis.hunertest.Adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,6 +76,9 @@ public class ServiceListAdapter extends BaseAdapter {
 
         viewHolder.serviceNameTxt.setText(serviceNames.get(i));
         viewHolder.serviceImage.setImageResource(serviceImages.get(i));
+
+        //Typeface tfc = Typeface.createFromAsset(context.getAssets(), "fonts/HELR45W.ttf");
+       // viewHolder.serviceNameTxt.setTypeface(tfc);
 
         return view;
     }

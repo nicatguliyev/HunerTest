@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".Test" />
-        <activity android:name=".Services"></activity>
+        <activity android:name=".Services" />
+        <activity android:name=".Details"></activity>
     </application>
 
 </manifest>

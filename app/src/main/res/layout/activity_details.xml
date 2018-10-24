@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hunerGrey"
+    tools:context="com.example.artservis.hunertest.Details">
+
+
+
+    <RelativeLayout
+        android:id="@+id/actionBarLyt"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@drawable/gradient_actionbar">
+
+        <TextView
+            android:id="@+id/activityNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Detallar"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/bacBtn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="2dp"
+            android:background="@drawable/menu_button_background"
+            android:clickable="true"
+            android:padding="8dp"
+            android:src="@drawable/big_back_arrow" />
+
+    </RelativeLayout>
+
+
+    <ListView
+        android:id="@+id/detailList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/actionBarLyt">
+
+    </ListView>
+
+</RelativeLayout>
