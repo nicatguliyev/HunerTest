@@ -62,7 +62,7 @@ public class Services extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 final RelativeLayout background = view.findViewById(R.id.listItemLyt);
 
-                background.setBackgroundColor(Color.parseColor("#ABFFFFFF"));
+                background.setBackgroundColor(Color.parseColor("#7EFFFFFF"));
 
                 android.os.Handler handler = new android.os.Handler();
 
