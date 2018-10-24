@@ -37,6 +37,7 @@ public class SelectDate extends AppCompatActivity {
     Map<String, String> months = new HashMap<String, String>();
     ArrayList<String> monthWithNames = new ArrayList<>();
     ArrayList<String> days = new ArrayList<>();
+    ArrayList<String> fullDate = new ArrayList<>();
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -91,6 +92,7 @@ public class SelectDate extends AppCompatActivity {
                 monthWithNames.add(months.get(dateInString.substring(0, 2)).substring(0, 3));
                 days.add(dayWithNumber);
 
+                fullDate.add(dateInString.substring(3, 5) + " " + months.get(dateInString.substring(0, 2)).substring(0, 3) + ", " + dateInString.substring(6,10));
             }
 
         } catch (ParseException e) {
@@ -225,6 +227,7 @@ public class SelectDate extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Zəhmət olmasa tarixi seçin.", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intentToServices = new Intent(getApplicationContext(), Services.class);
+                    intentToServices.putExtra("fullDate", fullDate.get(selectedItemIndex));
                     startActivity(intentToServices);
                     overridePendingTransition(R.anim.come_from_right, R.anim.exit_from_left);
 

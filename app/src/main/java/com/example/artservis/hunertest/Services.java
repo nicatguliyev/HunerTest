@@ -1,9 +1,11 @@
 package com.example.artservis.hunertest;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -11,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.artservis.hunertest.Adapter.ServiceListAdapter;
 
@@ -21,6 +24,7 @@ public class Services extends AppCompatActivity {
 
     ListView serviceList;
     ArrayList<String> servicenames;
+    ArrayList<Integer> serviceImages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +39,30 @@ public class Services extends AppCompatActivity {
         mActionBar.hide();
 
         ImageView backBtn = (ImageView) findViewById(R.id.bacBtn);
+        TextView activityNameTxt = (TextView) findViewById(R.id.activityNameTxt);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
+        if(bundle != null)
+        {
+           // Log.i("TATA",  bundle.getString("fullDate"));
+            activityNameTxt.setText("Xidmetler(" + bundle.getString("fullDate") + ")");
+        }
 
         servicenames  = new ArrayList<>();
 
         servicenames.add("Play Station");
         servicenames.add("Football");
-        servicenames.add("Play Station");
-        servicenames.add("Football");
+        servicenames.add("Pivə");
 
+        serviceImages = new ArrayList<>();
 
+        serviceImages.add(R.drawable.game_icon);
+        serviceImages.add(R.drawable.ball);
+        serviceImages.add(R.drawable.beer_icon);
 
-        ServiceListAdapter adapter = new ServiceListAdapter(this, servicenames);
+        ServiceListAdapter adapter = new ServiceListAdapter(this, servicenames, serviceImages);
 
         serviceList.setAdapter(adapter);
 

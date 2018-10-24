@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.artservis.hunertest.R;
@@ -19,12 +20,13 @@ public class ServiceListAdapter extends BaseAdapter {
 
     Context context;
     private final ArrayList<String> serviceNames;
+    private final ArrayList<Integer> serviceImages;
     LayoutInflater layoutInflater;
 
-    public  ServiceListAdapter(Context context, ArrayList<String> serviceNames) {
+    public  ServiceListAdapter(Context context, ArrayList<String> serviceNames, ArrayList<Integer> serviceImages) {
         this.context = context;
         this.serviceNames = serviceNames;
-
+        this.serviceImages = serviceImages;
     }
 
     @Override
@@ -44,6 +46,7 @@ public class ServiceListAdapter extends BaseAdapter {
 
     static class ViewHolder{
         TextView serviceNameTxt;
+        ImageView serviceImage;
 
     }
 
@@ -58,6 +61,7 @@ public class ServiceListAdapter extends BaseAdapter {
 
             viewHolder = new ViewHolder();
             viewHolder.serviceNameTxt = view.findViewById(R.id.serviceName);
+            viewHolder.serviceImage = view.findViewById(R.id.serviceImg);
 
 
             view.setTag(viewHolder);
@@ -70,7 +74,7 @@ public class ServiceListAdapter extends BaseAdapter {
         }
 
         viewHolder.serviceNameTxt.setText(serviceNames.get(i));
-
+        viewHolder.serviceImage.setImageResource(serviceImages.get(i));
 
         return view;
     }
