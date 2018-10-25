@@ -1,5 +1,6 @@
 package com.example.artservis.hunertest;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -26,11 +27,14 @@ public class Services extends AppCompatActivity {
     ListView serviceList;
     ArrayList<String> servicenames;
     ArrayList<Integer> serviceImages;
+    public static Activity serviceActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services);
+
+        serviceActivity = this;
 
         serviceList = (ListView) findViewById(R.id.serviceList);
 
@@ -96,6 +100,7 @@ public class Services extends AppCompatActivity {
 
                 Intent intent  = new Intent(getApplicationContext(), Details.class);
                 intent.putExtra("selectedService", serviceImages.get(i));
+                intent.putExtra("selectedServiceName", servicenames.get(i));
                 startActivity(intent);
                 overridePendingTransition(R.anim.come_from_right, R.anim.exit_from_left);
 

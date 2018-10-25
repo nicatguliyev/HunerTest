@@ -33,6 +33,7 @@
             android:textColor="#fff"
             android:layout_toRightOf="@+id/serviceImg"
             android:layout_marginLeft="10dp"
+            android:textSize="16sp"
             android:text="PLAY STATION"/>
 
 
@@ -45,7 +46,8 @@
             android:layout_marginBottom="10dp"
             android:layout_centerVertical="true"
             android:textColor="@color/hunerGold"
-            android:textStyle="italic"
+            android:textStyle="italic|bold"
+            android:textSize="18sp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
