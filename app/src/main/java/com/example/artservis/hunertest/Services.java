@@ -92,9 +92,10 @@ public class Services extends AppCompatActivity {
                     public void run() {
                         background.setBackgroundColor(Color.parseColor("#32383e"));
                     }
-                }, 100);
+                }, 50);
 
                 Intent intent  = new Intent(getApplicationContext(), Details.class);
+                intent.putExtra("selectedService", serviceImages.get(i));
                 startActivity(intent);
                 overridePendingTransition(R.anim.come_from_right, R.anim.exit_from_left);
 
