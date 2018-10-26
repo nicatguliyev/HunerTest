@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     c.add(Calendar.DATE, 1);
                 }
 
-                // COCOCOCO
+
                 sdf = new SimpleDateFormat("MM/dd/yyyy");
 
                 Date resultDate = new Date(c.getTimeInMillis());

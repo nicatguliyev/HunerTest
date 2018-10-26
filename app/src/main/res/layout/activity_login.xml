@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    android:focusableInTouchMode="true"
+    android:id="@+id/rootLyt"
+    tools:context="com.example.artservis.hunertest.Login">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+                <EditText
+                    android:id="@+id/userNameEdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@color/transparent"
+                    android:hint="İstifadəçi adı"
+                    android:textCursorDrawable="@null"
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="10dp"/>
+
+
+                <ImageView
+                    android:id="@+id/user_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/user_edt_icon"/>
+
+                <View
+                    android:id="@+id/userEdtView"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_below="@+id/userNameEdt"
+                    android:background="#f567"/>
+
+                <EditText
+                    android:id="@+id/passwordEdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@color/transparent"
+                    android:layout_below="@id/userEdtView"
+                    android:hint="Şifrə"
+                    android:layout_marginTop="20dp"
+                    android:textCursorDrawable="@null"
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:inputType="textPassword"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="10dp"/>
+
+
+                <ImageView
+                    android:id="@+id/password_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/userEdtView"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/pass_icon2"/>
+
+
+                <View
+                    android:id="@+id/passEdtViev"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_below="@+id/passwordEdt"
+                    android:background="#f567"/>
+
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/passEdtViev"
+                    android:text="Daxil ol"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/rounded_login_button"/>
+
+
+
+        </RelativeLayout>
+
+
+
+        <ImageView
+            android:id="@+id/logo_img"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/hg_logo"/>
+
+
+</RelativeLayout>
