@@ -122,6 +122,7 @@ public class Login extends AppCompatActivity {
                 finish();
                 Intent intent = new Intent(getApplicationContext(), Services.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.come_from_bottom, R.anim.exit_from_top);
             }
         });
     }
