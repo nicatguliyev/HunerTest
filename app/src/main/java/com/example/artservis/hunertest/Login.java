@@ -1,6 +1,7 @@
 package com.example.artservis.hunertest;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -22,6 +24,7 @@ public class Login extends AppCompatActivity {
     EditText userNameEdt, passwordEdt;
     View userNameView, passView;
     RelativeLayout rootView;
+    Button loginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,8 @@ public class Login extends AppCompatActivity {
 
         userNameView = findViewById(R.id.userEdtView);
         passView = findViewById(R.id.passEdtViev);
+
+        loginBtn = (Button) findViewById(R.id.loginBtn);
 
         userNameEdt.clearFocus();
 
@@ -107,6 +112,16 @@ public class Login extends AppCompatActivity {
                 passwordEdt.clearFocus();
                 InputMethodManager imm = (InputMethodManager) getApplicationContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }
+        });
+
+
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                Intent intent = new Intent(getApplicationContext(), Services.class);
+                startActivity(intent);
             }
         });
     }

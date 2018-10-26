@@ -38,7 +38,7 @@ public class Details extends AppCompatActivity {
 
         activityNameTxt = (TextView) findViewById(R.id.activityNameTxt);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
         int image = 0;
@@ -77,13 +77,14 @@ public class Details extends AppCompatActivity {
         detailList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                /*finish();
-                Services.serviceActivity.finish();
-                overridePendingTransition(R.anim.come_from_left, R.anim.exit_from_right);*/
+
 
                 final RelativeLayout background = view.findViewById(R.id.listItemLyt);
 
                 background.setBackgroundColor(Color.parseColor("#7EFFFFFF"));
+
+                Intent intent1 = new Intent(getApplicationContext(), SelectDate.class);
+                startActivity(intent1);
 
                 android.os.Handler handler = new android.os.Handler();
 

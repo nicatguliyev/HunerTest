@@ -13,7 +13,10 @@
         android:id="@+id/actionBarLyt"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="@drawable/gradient_actionbar">
+        android:background="@drawable/gradient_actionbar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/activityNameTxt"
@@ -25,15 +28,16 @@
             android:textStyle="bold"/>
 
 
-         <ImageView
-             android:layout_width="50dp"
-             android:layout_height="match_parent"
-             android:layout_centerVertical="true"
-             android:layout_marginLeft="5dp"
-             android:padding="11dp"
-             android:clickable="true"
-             android:background="@drawable/menu_button_background"
-             android:src="@drawable/menu_icon"/>
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="2dp"
+            android:background="@drawable/menu_button_background"
+            android:clickable="true"
+            android:padding="8dp"
+            android:src="@drawable/big_back_arrow" />
 
     </RelativeLayout>
 
@@ -51,25 +55,15 @@
         android:numColumns="auto_fit"/>
 
 
-    <RelativeLayout
+    <Button
         android:id="@+id/nextBtn"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:clickable="true"
-        android:background="@drawable/next_button_background">
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_login_button"
+        android:text="İRƏLİ"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"/>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="İRƏLİ"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#fff"/>
-
-    </RelativeLayout>
 
 
 

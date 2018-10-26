@@ -43,7 +43,7 @@ public class Services extends AppCompatActivity {
         ActionBar mActionBar = getSupportActionBar();
         mActionBar.hide();
 
-        ImageView backBtn = (ImageView) findViewById(R.id.bacBtn);
+        //ImageView backBtn = (ImageView) findViewById(R.id.bacBtn);
         TextView activityNameTxt = (TextView) findViewById(R.id.activityNameTxt);
 
       //  Typeface tfc = Typeface.createFromAsset(getAssets(), "fonts/HELR45W.ttf");
@@ -74,13 +74,13 @@ public class Services extends AppCompatActivity {
 
         serviceList.setAdapter(adapter);
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
+     /*   backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
                 overridePendingTransition(R.anim.come_from_left, R.anim.exit_from_right);
             }
-        });
+        });*/
 
         serviceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -113,6 +113,6 @@ public class Services extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finish();
-        overridePendingTransition(R.anim.come_from_left, R.anim.exit_from_right);
+        //overridePendingTransition(R.anim.come_from_left, R.anim.exit_from_right);
     }
 }

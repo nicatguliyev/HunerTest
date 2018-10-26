@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -38,6 +39,7 @@ public class SelectDate extends AppCompatActivity {
     ArrayList<String> monthWithNames = new ArrayList<>();
     ArrayList<String> days = new ArrayList<>();
     ArrayList<String> fullDate = new ArrayList<>();
+    ImageView backBtn;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -45,7 +47,8 @@ public class SelectDate extends AppCompatActivity {
         setContentView(R.layout.activity_select_date);
 
 
-        RelativeLayout nextBtn = (RelativeLayout) findViewById(R.id.nextBtn);
+        Button nextBtn = (Button) findViewById(R.id.nextBtn);
+        backBtn = (ImageView) findViewById(R.id.backBtn);
 
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -226,12 +229,17 @@ public class SelectDate extends AppCompatActivity {
                 if (selectedItemIndex == -1) {
                     Toast.makeText(getApplicationContext(), "Zəhmət olmasa tarixi seçin.", Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent intentToServices = new Intent(getApplicationContext(), Services.class);
-                    intentToServices.putExtra("fullDate", fullDate.get(selectedItemIndex));
-                    startActivity(intentToServices);
-                    overridePendingTransition(R.anim.come_from_right, R.anim.exit_from_left);
+
 
                 }
+            }
+        });
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.come_from_left, R.anim.exit_from_right);
             }
         });
 
