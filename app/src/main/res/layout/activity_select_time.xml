@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#32383e"
-    tools:context="com.example.artservis.hunertest.Test">
-    
-    
-    
+    android:background="@color/hunerGrey"
+    tools:context="com.example.artservis.hunertest.SelectTime">
+
+
+
     <RelativeLayout
         android:id="@+id/actionBarLyt"
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Tarix seçimi"
+            android:text="Saat seçimi"
             android:textColor="#fff"
             android:textStyle="bold"/>
 
@@ -41,33 +41,28 @@
 
     </RelativeLayout>
 
-
-
     <GridView
-        android:id="@+id/gridView"
+        android:id="@+id/timeGrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnWidth="90dp"
-        android:layout_below="@+id/actionBarLyt"
         android:layout_above="@+id/nextBtn"
-        android:layout_marginTop="5px"
-        android:layout_marginBottom="5px"
-        android:numColumns="auto_fit"/>
-
-
-    <Button
-        android:id="@+id/nextBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_login_button"
-        android:text="İRƏLİ"
-        android:textColor="#ffffff"
+        android:numColumns="auto_fit"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_alignParentBottom="true"/>
+        android:layout_below="@+id/actionBarLyt">
 
 
+    </GridView>
 
+  <Button
+      android:id="@+id/nextBtn"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_marginBottom="5dp"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:background="@drawable/rounded_login_button"
+      android:text="İRƏLİ"
+      android:textColor="#ffffff"/>
 
 </RelativeLayout>

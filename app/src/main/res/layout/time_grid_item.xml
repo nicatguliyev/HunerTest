@@ -10,28 +10,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp">
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
 
-
-        <TextView
-            android:id="@+id/dayTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="22-Okt"
-            android:textColor="#fff"
-            android:layout_centerHorizontal="true"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/dayTxt"
-            android:id="@+id/monthTxt"
-            android:layout_centerHorizontal="true"
-            android:textSize="12sp"
-            android:textColor="#fff"
-            android:text="B. ertesi"/>
-
+       <TextView
+           android:id="@+id/timeTxt"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="7:00 - 8:00"
+           android:textColor="#ffffff"/>
 
     </RelativeLayout>
 

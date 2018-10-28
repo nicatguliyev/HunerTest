@@ -112,7 +112,7 @@ public class Test extends AppCompatActivity {
 
         myGridView.setColumnWidth(width /5);
 
-        GridAdapter adapter = new GridAdapter(this, monthWithNames, days);
+        GridAdapter adapter = new GridAdapter(this, monthWithNames, days, days);
 
         myGridView.setAdapter(adapter);
 

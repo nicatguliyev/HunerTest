@@ -24,13 +24,15 @@ public class GridAdapter extends BaseAdapter {
     Context context;
     private final ArrayList<String> months;
     private final ArrayList<String> days;
+    private final ArrayList<String> dayNames;
     View _View;
     LayoutInflater layoutInflater;
 
-    public GridAdapter(Context context, ArrayList<String> months, ArrayList<String> days) {
+    public GridAdapter(Context context, ArrayList<String> months, ArrayList<String> days, ArrayList<String> dayNames) {
         this.context = context;
         this.months = months;
         this.days = days;
+        this.dayNames = dayNames;
     }
 
     @Override
@@ -76,8 +78,8 @@ public class GridAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        viewHolder.dayTxt.setText(days.get(i));
-        viewHolder.monthTxt.setText(months.get(i));
+        viewHolder.dayTxt.setText(days.get(i) + "-" + months.get(i));
+        viewHolder.monthTxt.setText(dayNames.get(i));
 
         return view;
     }

@@ -23,35 +23,71 @@
             app:civ_border_color="@color/hunerGold"
             app:civ_border_width="2dp"/>
 
-        <TextView
-            android:id="@+id/serviceName"
-            android:layout_width="wrap_content"
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_centerVertical="true"
-            android:textColor="#fff"
-            android:layout_toRightOf="@+id/serviceImg"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
-            android:text="PLAY STATION"/>
+            android:layout_toRightOf="@+id/serviceImg">
 
 
 
-        <TextView
-            android:id="@+id/priceTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_centerVertical="true"
-            android:textColor="@color/hunerGold"
-            android:textStyle="italic|bold"
-            android:textSize="18sp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="15 AZN"/>
+
+            <TextView
+                android:id="@+id/serviceName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/hunerGold"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp"
+                android:text="PLAY STATION"/>
+
+            <TextView
+                android:id="@+id/hefteIci"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/serviceName"
+                android:textSize="12sp"
+
+                android:layout_alignLeft="@+id/serviceName"
+                android:text="Həftə içi 02:00-23:00 1 saat - 25AZN"
+                android:textColor="#fff"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/hefteIci"
+                android:textSize="12sp"
+                android:layout_below="@+id/hefteIci"
+                android:layout_marginBottom="5dp"
+                android:text="Həftə sonu 02:00-23:00 1 saat - 25AZN"
+                android:textColor="#ffffff"/>
+
+
+            <TextView
+                android:id="@+id/priceTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/hunerGold"
+                android:textStyle="italic|bold"
+                android:visibility="invisible"
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="15 AZN"/>
+
+
+
+
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"

@@ -21,7 +21,8 @@
         <activity android:name=".Test" />
         <activity android:name=".Services" />
         <activity android:name=".Details" />
-        <activity android:name=".SelectDate"></activity>
+        <activity android:name=".SelectDate" />
+        <activity android:name=".SelectTime"></activity>
     </application>
 
 </manifest>

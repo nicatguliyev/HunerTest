@@ -36,9 +36,11 @@ public class SelectDate extends AppCompatActivity {
     View selectedItemView;  // secilmis tarixe uygun view-nu gosterir.
     int selectedItemIndex = -1;  // Secilmis tarixin indexini gosterir.
     Map<String, String> months = new HashMap<String, String>();
+    Map<Integer, String> dayNames = new HashMap<>();
     ArrayList<String> monthWithNames = new ArrayList<>();
     ArrayList<String> days = new ArrayList<>();
     ArrayList<String> fullDate = new ArrayList<>();
+    ArrayList<String> daysOfWeek = new ArrayList<>();
     ImageView backBtn;
 
     @Override
@@ -70,6 +72,14 @@ public class SelectDate extends AppCompatActivity {
         months.put("11", "Noyabr");
         months.put("12", "Dekabr");
 
+        dayNames.put(2, "B. Ertəsi");
+        dayNames.put(3, "Ç. Axşamı");
+        dayNames.put(4, "Çərşənbə");
+        dayNames.put(5, "C. Axşamı");
+        dayNames.put(6, "Cümə");
+        dayNames.put(7, "Şənbə");
+        dayNames.put(1, "Bazar");
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
         Date currentDate = Calendar.getInstance().getTime();
@@ -84,6 +94,10 @@ public class SelectDate extends AppCompatActivity {
                 } else {
                     c.add(Calendar.DATE, 1);
                 }
+
+                int dayofWeek = c.get(Calendar.DAY_OF_WEEK);
+
+                daysOfWeek.add(dayNames.get(dayofWeek));
 
 
                 sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -115,7 +129,7 @@ public class SelectDate extends AppCompatActivity {
         // Ekranin enini 5 beraber hisseye bolub
         myGridView.setColumnWidth(width / 5);
 
-        final GridAdapter adapter = new GridAdapter(this, monthWithNames, days);
+        final GridAdapter adapter = new GridAdapter(this, monthWithNames, days, daysOfWeek);
 
         // App-in orientaionu deyisen zaman.
         if(savedInstanceState != null)
@@ -126,7 +140,7 @@ public class SelectDate extends AppCompatActivity {
                 selectedItemIndex = savedInstanceState.getInt("selectedIndex");
                 selectedItemView = adapter.getView(selectedItemIndex, null, myGridView);
 
-                myGridView.setAdapter(new GridAdapter(this, monthWithNames, days)
+                myGridView.setAdapter(new GridAdapter(this, monthWithNames, days, daysOfWeek)
                 {
                     @Override
                     public View getView(int i, View view, ViewGroup viewGroup) {
@@ -156,7 +170,7 @@ public class SelectDate extends AppCompatActivity {
             else
             {
 
-                myGridView.setAdapter(new GridAdapter(this, monthWithNames, days)
+                myGridView.setAdapter(new GridAdapter(this, monthWithNames, days, daysOfWeek)
                 {
                     @Override
                     public View getView(int i, View view, ViewGroup viewGroup) {
@@ -230,6 +244,9 @@ public class SelectDate extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Zəhmət olmasa tarixi seçin.", Toast.LENGTH_SHORT).show();
                 } else {
 
+                    Intent intent = new Intent(getApplicationContext(), SelectTime.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.come_from_right, R.anim.exit_from_left);
 
                 }
             }

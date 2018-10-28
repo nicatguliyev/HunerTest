@@ -85,6 +85,8 @@ public class Details extends AppCompatActivity {
 
                 Intent intent1 = new Intent(getApplicationContext(), SelectDate.class);
                 startActivity(intent1);
+                overridePendingTransition(R.anim.come_from_right, R.anim.exit_from_left);
+
 
                 android.os.Handler handler = new android.os.Handler();
 
