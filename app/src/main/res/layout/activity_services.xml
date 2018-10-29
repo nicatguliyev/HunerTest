@@ -13,6 +13,18 @@
         android:layout_height="?android:attr/actionBarSize"
         android:background="@drawable/gradient_actionbar">
 
+        <ImageView
+            android:id="@+id/bacBtn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/menu_button_background"
+            android:clickable="true"
+            android:padding="10dp"
+            android:src="@drawable/menu_icon" />
+
+
         <TextView
             android:id="@+id/activityNameTxt"
             android:layout_width="wrap_content"

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#9e000000"
+    android:id="@+id/parentLyt">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/mainLyt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_popup_background"
+            android:layout_marginTop="50dp">
+
+
+            <RelativeLayout
+                android:id="@+id/dearLyt"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/userImg"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/filankes"
+                    app:civ_border_color="@color/hunerGold"
+                    app:civ_border_width="2dp"/>
+
+
+                <TextView
+                    android:id="@+id/dearTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Hörmətli sakin"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/userImg"
+                    android:layout_centerVertical="true"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/messageTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dearLyt"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#fff"
+                android:text="Siz NOY - 11 tarixində 12:00-13:00; 16:00-17:00; 13:00-14:00; 17:00-18:00 saatlarda PlayStation - [ Kabinet #2 ] xidməti sifariş verirsiniz Xidmətin qiyməti 100 - AZN"
+                android:textSize="16sp"/>
+
+
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/messageTxt"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp">
+
+                <Button
+                    android:id="@+id/closeBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:background="@drawable/rounded_ok_button"
+                    android:text="BAĞLA"
+                    android:textColor="#fff"/>
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/messageTxt"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:weightSum="2"
+                android:layout_marginBottom="15dp">
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/cancelBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="Ləğv et"
+                        android:background="@drawable/rounded_cancel_button"/>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/okBtn"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_centerInParent="true"
+                        android:text="Təsdiq et"
+                        android:background="@drawable/rounded_ok_button"/>
+
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

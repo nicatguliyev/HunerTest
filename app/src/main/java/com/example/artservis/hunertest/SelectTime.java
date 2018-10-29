@@ -1,15 +1,25 @@
 package com.example.artservis.hunertest;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
@@ -23,6 +33,8 @@ import com.example.artservis.hunertest.Adapter.SelectTimeAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import static android.text.Spanned.SPAN_INCLUSIVE_INCLUSIVE;
 
 public class SelectTime extends AppCompatActivity {
 
@@ -49,17 +61,23 @@ public class SelectTime extends AppCompatActivity {
 
 
         times.add("07:00 - 08:00");
-        times.add("07:00 - 08:00");
-        times.add("07:00 - 08:00");
-        times.add("07:00 - 08:00");
-        times.add("07:00 - 08:00");
-        times.add("07:00 - 08:00");
-        times.add("07:00 - 08:00");
-        times.add("07:00 - 08:00");
-        times.add("07:00 - 08:00");
-        times.add("07:00 - 08:00");
-        times.add("07:00 - 08:00");
-        times.add("07:00 - 08:00");
+        times.add("08:00 - 09:00");
+        times.add("09:00 - 10:00");
+        times.add("10:00 - 11:00");
+        times.add("11:00 - 12:00");
+        times.add("12:00 - 13:00");
+        times.add("13:00 - 14:00");
+        times.add("14:00 - 15:00");
+        times.add("15:00 - 16:00");
+        times.add("16:00 - 17:00");
+        times.add("17:00 - 18:00");
+        times.add("18:00 - 19:00");
+        times.add("19:00 - 20:00");
+        times.add("20:00 - 21:00");
+        times.add("21:00 - 22:00");
+        times.add("22:00 - 23:00");
+        times.add("23:00 - 00:00");
+
 
         SelectTimeAdapter adapter = new SelectTimeAdapter(getApplicationContext(), times);
 
@@ -124,10 +142,83 @@ public class SelectTime extends AppCompatActivity {
                 }
                 else
                 {
-                    Log.i("OOOOO", "OOOOOOO");
+                   showDialog();
                 }
             }
         });
+
+    }
+
+    public  void showDialog(){
+
+        final Dialog dialog = new Dialog(SelectTime.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setContentView(R.layout.custom_popup);
+        dialog.show();
+
+
+        final TextView messageTxt = dialog.findViewById(R.id.messageTxt);
+        final Button cancelBtn = dialog.findViewById(R.id.cancelBtn);
+        final Button okBtn = dialog.findViewById(R.id.okBtn);
+        final Button closeBtn = dialog.findViewById(R.id.closeBtn);
+        final RelativeLayout mainLyt = dialog.findViewById(R.id.parentLyt);
+
+        String message = "Siz " + "<b>NOY - 11</b>"  + " tarixində" + "<b> 12:00-13:00; 16:00-17:00; 13:00-14:00; 17:00-18:00</b>"+" saatlarda"
+                + "<b> PlayStation - [ Kabinet #2 ]</b> xidməti sifariş verirsiniz Xidmətin qiyməti " + "<b>100-AZN</b>";
+
+        messageTxt.setText(Html.fromHtml(message));
+
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final Handler handler = new Handler();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialog.dismiss();
+                    }
+                }, 300);
+
+                mainLyt.animate().scaleY(0).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(250);
+
+
+            }
+        });
+
+        okBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                messageTxt.setText("SIFARISINIZ QEBUL OLUNDU");
+                okBtn.setVisibility(View.INVISIBLE);
+                cancelBtn.setVisibility(View.INVISIBLE);
+                closeBtn.setVisibility(View.VISIBLE);
+            }
+        });
+
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Handler handler = new Handler();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialog.dismiss();
+                    }
+                }, 300);
+
+                mainLyt.animate().scaleY(0).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(250);
+            }
+        });
+
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        int width = metrics.widthPixels;
+        dialog.getWindow().setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT);
+
 
     }
 
